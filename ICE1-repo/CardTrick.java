@@ -34,27 +34,18 @@ public class CardTrick {
         }
         
         //insert code to ask the user for Card value and suit, create their card
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter card value (1-13): ");
-        int value = input.nextInt();
-
-        System.out.println("Enter card suit (Hearts, Diamonds, Spades, Clubs): ");
-        String suit = input.next();
-
-        Card userCard = new Card();
-        userCard.setValue(value);
-        userCard.setSuit(suit);
+        //lucky card
+        Card luckyCard = new Card();
+        luckyCard.setValue(9);
+        luckyCard.setSuit("Hearts");
 
         // and search magicHand here
-         boolean found = false;
-        
-        for (int i = 0; i < magicHand.length; i++)
-        boolean found = false;
+           boolean found = false;
         
         for (int i = 0; i < magicHand.length; i++)
         {
-            if (magicHand[i].getValue() == userCard.getValue()
-                    && magicHand[i].getSuit().equalsIgnoreCase(userCard.getSuit()))
+            if (magicHand[i].getValue() == luckyCard.getValue()
+                    && magicHand[i].getSuit().equalsIgnoreCase(luckyCard.getSuit()))
             {
                 found = true;
             }
@@ -64,11 +55,11 @@ public class CardTrick {
         //Then report the result here
         if (found)
         {
-            System.out.println("You have the magic card!");
+            System.out.println("You have the lucky card, you win!");
         }
         else
         {
-            System.out.println("You do not have the magic card.");
+            System.out.println("You do not have the lucky card, to bad you lose.");
         }
 
     }
